@@ -152,6 +152,10 @@ td.acol{color:var(--blue);font-weight:600}
 .rchip{font-family:var(--f-mono);font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:0 5px}
 .rchip.hi{color:var(--blue)}.rchip.lo{color:var(--red)}
 .tabs{flex-wrap:wrap;row-gap:6px}
+.owner{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;border:1px dashed var(--line);border-radius:6px;padding:10px 12px;margin:8px 0 4px}
+.obtn{font:inherit;font-size:14px;background:var(--orange);color:#fff;border:0;border-radius:4px;padding:6px 14px;cursor:pointer}
+.obtn:disabled{opacity:.5;cursor:default}
+.omsg{flex-basis:100%;margin:0;font-size:13px}
 .empty{color:var(--muted);padding-block:32px;text-align:center}
 footer{color:var(--faint);font-size:12px;line-height:1.8;border-top:1px solid var(--line);padding-top:20px}
 footer a{color:var(--muted)}
@@ -757,6 +761,45 @@ footer a{color:var(--muted)}
   const ratingsFor = (date, name) => ratings.filter(r => r.date===date && r.name===name);
   const scoreClass = r => (r.scale==="10点満点" && r.score!=null) ? (r.score>=7?"hi":r.score<=5?"lo":"") : "";
   const scoreHTML = r => r.score==null ? `<span class="rs none">寸評</span>` : `<span class="rs ${scoreClass(r)}">${r.score}<small>${r.scale==="10点満点"?"/10":esc(r.scale)}</small></span>`;
+  // 持ち主だけに出す「今すぐ採点を探す」ボタン（claude.ai 上でのみ動作）
+  const RATING_TASK = "trig_01FYP3gBh5qRhy2xsoKLC6hB";
+  const owner = {ready:false, mcp:null, msg:"", busy:false};
+  (async () => {
+    try{
+      if(!window.claude || typeof window.claude.use !== "function") return;
+      const [user, mcp] = await Promise.all([window.claude.use("user"), window.claude.use("mcp")]);
+      const isOwner = user ? await user.isOwner() : false;
+      if(!isOwner || !mcp) return;
+      owner.ready = true; owner.mcp = mcp;
+      if(state.tab === "ratings") render();
+    }catch(e){}
+  })();
+  const lastFireKey = "kaigai-last-fire";
+  const lastFire = () => { try{ return Number(localStorage.getItem(lastFireKey)||0); }catch(e){ return 0; } };
+  async function fireRatingSearch(){
+    if(owner.busy || !owner.mcp) return;
+    owner.busy = true; owner.msg = "採点探しを依頼しています…"; render();
+    try{
+      await owner.mcp.callTool("Claude Code Remote", "fire_trigger", {trigger_id: RATING_TASK}, {cache:false});
+      try{ localStorage.setItem(lastFireKey, String(Date.now())); }catch(e){}
+      owner.msg = "採点探しを始めました。見つかった分は10〜20分ほどでこのページと公開サイトに反映されます（ページを開き直すと表示されます）。";
+    }catch(err){
+      const code = err && err.code;
+      owner.msg = code==="needs_reauth" ? "Claude Code Remote の接続が切れています。claude.ai の設定 → コネクタから接続し直してください。"
+        : code==="server_not_connected" ? "Claude Code Remote が接続されていません。claude.ai の設定 → コネクタで追加してください。"
+        : (code==="not_in_manifest"||code==="approval_required") ? "このページからの実行が許可されていません。ページの権限メニューで Claude Code Remote を許可してから、もう一度押してください。"
+        : code==="tool_error" ? `実行を依頼できませんでした（${err.message||"タスク側のエラー"}）。定期タスクの設定を確認してください。`
+        : "実行を依頼できたか確認できませんでした。少し待ってからページを開き直し、反映されていなければもう一度押してください。";
+    }finally{ owner.busy = false; render(); }
+  }
+  const ownerPanel = () => {
+    if(!owner.ready) return "";
+    const lf = lastFire(), mins = lf ? Math.round((Date.now()-lf)/60000) : null;
+    return `<div class="owner"><button class="obtn" id="fire-ratings" ${owner.busy?"disabled":""}>今すぐ採点を探す</button>
+      <span class="note">あなたにだけ表示されています。${mins!=null?`前回の依頼は${mins<60?mins+"分":Math.round(mins/60)+"時間"}前。`:""}定期チェックは3時間ごとです。</span>
+      ${owner.msg?`<p class="omsg">${esc(owner.msg)}</p>`:""}</div>`;
+  };
+
   function renderRatings(){
     const q = state.q;
     const groups = {};
@@ -771,8 +814,8 @@ footer a{color:var(--muted)}
     });
     const gs = Object.values(groups).sort((a,b) => b.m.date.localeCompare(a.m.date) || a.p.name.localeCompare(b.p.name,"ja"));
     const intro = `<p class="note r-intro">海外メディアが報じた日本人選手の採点と寸評です。点数の尺度は媒体ごとに異なります（表示は10点満点、数字が大きいほど高評価）。採点した海外メディアの元記事を直接確認したものだけを載せています（日本語の報道は使っていません）。寸評は元記事の要点を短くまとめたもので、原文は「元記事を読む」から確認できます。</p>`;
-    if(!gs.length) return weekNav() + intro + `<p class="empty">この週の採点はまだ登録されていません。</p>`;
-    return weekNav() + intro + `<div class="rlist">${gs.map(({m,p,list}) => {
+    if(!gs.length) return ownerPanel() + weekNav() + intro + `<p class="empty">この週の採点はまだ登録されていません。</p>`;
+    return ownerPanel() + weekNav() + intro + `<div class="rlist">${gs.map(({m,p,list}) => {
       const res = resultFor(m, p.club);
       return `<article class="rcard">
         <header class="rhead">
@@ -808,6 +851,7 @@ footer a{color:var(--muted)}
   view.addEventListener("click", e => {
     const sb = e.target.closest(".segb[data-pv]");
     if(sb){ state.pview = sb.dataset.pv; save(); render(); return; }
+    if(e.target.closest("#fire-ratings")){ fireRatingSearch(); return; }
     const wb = e.target.closest(".mbtn[data-w]");
     if(wb && wb.dataset.w){ state.week = wb.dataset.w; renderHL(); render(); return; }
     const mb = e.target.closest(".mbtn[data-m]");
