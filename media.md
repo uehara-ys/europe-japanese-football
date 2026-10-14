@@ -262,6 +262,9 @@
 - [Walfoot](https://www.walfoot.be/)（ベルギー。ユニオンSG・シャルルロワなどの「les notes」。10点満点。短時間出場は「Non notés」）
 - [La DH/Les Sports+](https://www.dhnet.be/sports/football/)（ベルギー。ユニオンSG・スタンダールなどの「les notes」。10点満点。L'Avenirにも同内容が掲載）
 - [Vilfort Park](https://www.vilfortpark.dk/)（ブレンビー専門ファンサイト。毎試合の「karakterer」。10点満点）
+- [Aston Villa Review](https://www.astonvillareview.com/)（アストン・ヴィラ専門の独立系メディア。選手採点。10点満点）
+- [Burnley Express](https://www.burnleyexpress.net/sport/football/burnley-fc)（バーンリーの地元紙。選手採点。10点満点）
+- [A Bola](https://www.abola.pt/)（ポルトガル大手スポーツ紙。試合記事の末尾に全選手の採点。寸評なし）
 
 ## メモ（読めなかった媒体など）
 
