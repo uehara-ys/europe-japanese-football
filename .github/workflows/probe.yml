@@ -1,0 +1,29 @@
+name: probe-source
+on:
+  push:
+    branches: [probe]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch source pages
+        run: |
+          mkdir -p probe
+          UA="Mozilla/5.0 (compatible; europe-japanese-football-bot; +https://uehara-ys.github.io/europe-japanese-football/)"
+          for p in matches players stats; do
+            curl -sSL -A "$UA" -o "probe/$p.html" -w "$p %{http_code} %{size_download}\n" "https://soccer-kaigaigumi-navi.com/$p" || true
+          done
+          curl -sSL -A "$UA" -o probe/robots.txt -w "robots %{http_code}\n" https://soccer-kaigaigumi-navi.com/robots.txt || true
+          curl -sSL -A "$UA" -o probe/player_kamada.html -w "kamada %{http_code}\n" https://soccer-kaigaigumi-navi.com/transfer/players/kamada || true
+          ls -la probe
+      - name: Save to probe-out branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b probe-out
+          git add probe
+          git commit -m "probe output" -q
+          git push -f origin probe-out
