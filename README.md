@@ -7,3 +7,4 @@
 - データは `index.html` 内の `<script type="application/json" id="data">` にあります。
 - 毎朝、定期タスクで前日までの結果・今後の日程・今シーズン通算成績を更新しています。
 - 試合結果・成績の出典: [サッカー海外組ナビ](https://soccer-kaigaigumi-navi.com/)
+- 現地メディアの採点を探す媒体リスト: [media.md](media.md)
