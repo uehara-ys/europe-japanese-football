@@ -550,17 +550,7 @@ footer a{color:var(--muted)}
 ["2026-10-10", "鈴木彩艶", "dave.sport", "イギリス", 6.5, "10点満点", "3本のセーブを記録", "https://dave.sport/news/aston-villa-vs-brentford-player-ratings/", true],
 ["2026-10-10", "鈴木彩艶", "Villa News", "イギリス", 6, "10点満点", "点数のみで寸評なし", "https://sports.yahoo.com/articles/aston-villa-player-ratings-vs-154919140.html", true],
 ["2026-10-10", "田中碧", "Yorkshire Evening Post", "イギリス", 7, "10点満点", "前半はチーム随一の働き。相手のカウンターを止める守備も光った", "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/lee-sobots-leeds-united-player-ratings-vs-arsenal-9276036", true],
-["2026-10-10", "田中碧", "The National", "UAE", 7, "10点満点", "丁寧なパス回しとボールのない所での献身。後半は運動量が落ちて交代", "https://www.thenationalnews.com/sport/football/2026/10/10/arsenal-v-leeds-player-ratings-odegaard-8-guimaraes-7-calvert-lewin-7-trafford-4/", true],
-["2026-10-10", "旗手怜央", "BBC", "イギリス", 8.76, "10点満点", "1ゴール1アシストでプレイヤー・オブ・ザ・マッチに。チーム最高点", "https://www.football-zone.net/archives/678741", false],
-["2026-10-13", "上田綺世", "Maxifoot", "フランス", 4.5, "10点満点", "存在感を出そうとしたが影響は小さく、後半は姿が消えた", "https://qoly.jp/q1/17869995", false],
-["2026-10-13", "上田綺世", "Le Petit Lillois", "フランス", 3.5, "10点満点", "前線で孤立し厳しいマークに遭い、ゴール前でほぼ仕事ができず", "https://qoly.jp/q1/17869995", false],
-["2026-10-10", "鈴木彩艶", "Birmingham Live", "イギリス", 6, "10点満点", "先制点はノーチャンス。後半序盤のシャーデのシュートを好セーブ", "https://www.goal.com/jp/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9/zion-suzuki-ratings/blt2b9e5ec92bc884f9", false],
-["2026-10-10", "鈴木彩艶", "The Guardian", "イギリス", null, "", "後半開始直後のボレーを弾き出した場面を好セーブとして紹介", "https://www.footballchannel.jp/2026/10/11/post1030776/", false],
-["2026-10-10", "田中碧", "BBC Sport", "イギリス", 7, "10点満点", "ボール保持時のプレーが良く中盤で献身的。リーズ先発で最高タイ", "https://www.footballchannel.jp/2026/10/11/post1030752/", false],
-["2026-10-10", "田中碧", "VAVEL", "", 7, "10点満点", "粘り強い守備で攻撃を断ち切った。前半の警告は余計だった", "https://www.footballchannel.jp/2026/10/11/post1030752/", false],
-["2026-10-10", "田中碧", "The Guardian", "イギリス", null, "", "途中交代までのプレーを高く評価", "https://www.footballchannel.jp/2026/10/11/post1030752/", false],
-["2026-10-10", "堂安律", "Frankfurter Rundschau", "ドイツ", null, "", "ボール扱いが雑で好機を逃し判断も鈍い。仕掛ける姿勢はあったが目立たず", "https://www.goal.com/jp/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9/doan-kosugi-keita-note/blt5d12d6b08775f3b2", false],
-["2026-10-10", "小杉啓太", "Frankfurter Rundschau", "ドイツ", null, "", "失点につながる場面があり落ち着きを欠いた。前半で交代", "https://www.goal.com/jp/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9/doan-kosugi-keita-note/blt5d12d6b08775f3b2", false]
+["2026-10-10", "田中碧", "The National", "UAE", 7, "10点満点", "丁寧なパス回しとボールのない所での献身。後半は運動量が落ちて交代", "https://www.thenationalnews.com/sport/football/2026/10/10/arsenal-v-leeds-player-ratings-odegaard-8-guimaraes-7-calvert-lewin-7-trafford-4/", true]
 ]
 }
 </script>
@@ -780,7 +770,7 @@ footer a{color:var(--muted)}
       groups[k].list.sort((a,b) => (b.orig-a.orig));
     });
     const gs = Object.values(groups).sort((a,b) => b.m.date.localeCompare(a.m.date) || a.p.name.localeCompare(b.p.name,"ja"));
-    const intro = `<p class="note r-intro">海外メディアが報じた日本人選手の採点と寸評です。点数の尺度は媒体ごとに異なります（表示は10点満点、数字が大きいほど高評価）。寸評は記事の要点を短くまとめたものです。「元記事を読む」は採点した海外メディアの記事そのもの、「元記事は未確認」は日本語の報道で採点が伝えられ、元の記事をまだ確認できていないものです。</p>`;
+    const intro = `<p class="note r-intro">海外メディアが報じた日本人選手の採点と寸評です。点数の尺度は媒体ごとに異なります（表示は10点満点、数字が大きいほど高評価）。採点した海外メディアの元記事を直接確認したものだけを載せています（日本語の報道は使っていません）。寸評は元記事の要点を短くまとめたもので、原文は「元記事を読む」から確認できます。</p>`;
     if(!gs.length) return weekNav() + intro + `<p class="empty">この週の採点はまだ登録されていません。</p>`;
     return weekNav() + intro + `<div class="rlist">${gs.map(({m,p,list}) => {
       const res = resultFor(m, p.club);
