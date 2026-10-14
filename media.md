@@ -253,6 +253,8 @@
 - [Get Football News Germany](https://www.getfootballnewsgermany.com/)（英語のドイツサッカー専門。ブンデスの選手採点。10点満点）
 - [L'Unione Sarda](https://www.unionesarda.it/sport)・[La Nuova Sardegna](https://www.lanuovasardegna.it/sport)・[CagliariPad](https://www.cagliaripad.it/)・[CalcioMercato.it](https://www.calciomercato.it/)（カリアリのpagelle。10点満点）
 - [UDLasPalmas.net](https://www.udlaspalmas.net/)（ラス・パルマス専門。「uno x uno」の採点）
+- [Express & Star](https://www.expressandstar.com/sport/)（アストン・ヴィラ、ウルブスの選手採点。10点満点）
+- [MOT Leeds News](https://motleedsnews.com/)（リーズ専門。選手採点。10点満点）
 - [Le Petit Lillois](https://lepetitlillois.com/)（リール専門。試合ごとの選手採点。10点満点）
 
 ## メモ（読めなかった媒体など）
