@@ -1,0 +1,21 @@
+name: LINE 週1回のまとめ
+
+on:
+  schedule:
+    # 毎週月曜 0:00 UTC = 日本時間 月曜 9:00
+    - cron: "0 0 * * 1"
+  workflow_dispatch: {}
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: 先週のまとめをLINEグループに送る
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_GROUP_ID: ${{ secrets.LINE_GROUP_ID }}
+        run: |
+          python3 scripts/line_summary.py print-weekly
+          python3 scripts/line_summary.py push-weekly

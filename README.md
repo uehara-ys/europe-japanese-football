@@ -9,3 +9,4 @@
 - 「現地の評価」（海外メディアの採点・試合レポート・記事）は、Claude の定期タスクが探して追加しています。
 - 試合結果・成績の出典: [サッカー海外組ナビ](https://soccer-kaigaigumi-navi.com/)
 - 現地メディアの採点を探す媒体リスト: [media.md](media.md)
+- LINEグループへの配信（返信Botと週1回のまとめ）: [line/README.md](line/README.md)
