@@ -243,6 +243,16 @@
 - [dave.sport](https://dave.sport/news/)（イングランド・プレミアの各試合で選手採点を掲載。10点満点）
 - [The National](https://www.thenationalnews.com/sport/football/)（UAE。プレミアの注目試合で選手採点。10点満点）
 - [Villa News](https://www.astonvillanews.co.uk/)（アストン・ヴィラ専門。選手採点。10点満点）
+- [Bristol Live](https://www.bristolpost.co.uk/all-about/bristol-city-fc)（ブリストル・シティの選手採点。Yahoo Sports UKに転載あり。10点満点）
+- [Yorkshire Post](https://www.yorkshirepost.co.uk/sport/football)（ハル・シティなどヨークシャーのクラブの選手採点。10点満点）
+- [The False 9](https://thefalse9.com/)（プレミアの各試合で選手採点。10点満点）
+- [Foot Mercato](https://www.footmercato.net/)（フランス。リーグ・アン／欧州カップ戦の「les notes du match」。10点満点）
+- [433foot](https://www.433foot.fr/)（フランス。試合ごとの選手採点。10点満点）
+- [VoetbalPrimeur](https://www.voetbalprimeur.nl/)（オランダ。PSVなどの「spelersrapport」。10点満点）
+- [SchalkeTOTAL](https://schalketotal.de/)（シャルケ専門。Einzelkritik。ドイツ式1〜6）
+- [Get Football News Germany](https://www.getfootballnewsgermany.com/)（英語のドイツサッカー専門。ブンデスの選手採点。10点満点）
+- [L'Unione Sarda](https://www.unionesarda.it/sport)・[La Nuova Sardegna](https://www.lanuovasardegna.it/sport)・[CagliariPad](https://www.cagliaripad.it/)・[CalcioMercato.it](https://www.calciomercato.it/)（カリアリのpagelle。10点満点）
+- [UDLasPalmas.net](https://www.udlaspalmas.net/)（ラス・パルマス専門。「uno x uno」の採点）
 
 ## メモ（読めなかった媒体など）
 
