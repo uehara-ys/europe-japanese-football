@@ -31,15 +31,14 @@ jobs:
         id: run
         run: |
           python3 scripts/update_data.py | tee /tmp/update.log
-          python3 scripts/line_summary.py build
-          if git diff --quiet && [ -z "$(git status --porcelain data/summary.json)" ]; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+          if git diff --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
 
       - name: 変更があればコミットして公開
         if: steps.run.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html data/summary.json
+          git add index.html
           git commit -q -F - <<MSG
           データ自動更新 $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M')
 
@@ -51,9 +50,8 @@ jobs:
             git fetch -q origin main
             git reset -q --hard origin/main
             python3 scripts/update_data.py > /tmp/update.log
-            python3 scripts/line_summary.py build
-            git diff --quiet && [ -z "$(git status --porcelain data/summary.json)" ] && exit 0
-            git add index.html data/summary.json
+            git diff --quiet && exit 0
+            git add index.html
             git commit -q -m "データ自動更新 $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M')"
             sleep 5
           done
