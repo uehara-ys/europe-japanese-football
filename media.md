@@ -256,6 +256,9 @@
 - [Express & Star](https://www.expressandstar.com/sport/)（アストン・ヴィラ、ウルブスの選手採点。10点満点）
 - [MOT Leeds News](https://motleedsnews.com/)（リーズ専門。選手採点。10点満点）
 - [Le Petit Lillois](https://lepetitlillois.com/)（リール専門。試合ごとの選手採点。10点満点）
+- [Get French Football News](https://www.getfootballnewsfrance.com/)（英語のフランスサッカー専門。リーグ・アン／欧州カップ戦の選手採点。10点満点）
+- [Sky Sport Italia](https://sport.sky.it/calcio/serie-a)・[Cagliari News 24](https://www.cagliarinews24.com/)・[CalcioCasteddu](https://www.calciocasteddu.it/)・[Calcio News 24](https://www.calcionews24.com/)・[GOAL Italia](https://www.goal.com/it)・[Eurosport Italia](https://www.eurosport.it/calcio/)・[Fantacalcio.it](https://www.fantacalcio.it/pagelle)・[AGI](https://www.agi.it/sport/)（セリエAのpagelle。10点満点）
+- [ran](https://ran.joyn.de/sports/fussball/)（ドイツ。バイエルンなどの「Noten」。短時間出場は採点なしで寸評のみのことあり）
 
 ## メモ（読めなかった媒体など）
 
