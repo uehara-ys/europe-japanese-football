@@ -141,6 +141,8 @@ td.acol{color:var(--blue);font-weight:600}
 .rs{font-family:var(--f-mono);font-size:22px;font-weight:600;line-height:1.1}
 .rs small{font-size:11px;font-weight:400;color:var(--faint);margin-left:1px}
 .rs.hi{color:var(--blue)}.rs.lo{color:var(--red)}
+.rs.none.k-report{color:var(--blue);border-color:var(--blue)}
+.rs.none.k-article{color:var(--orange);border-color:var(--orange)}
 .rs.none{font-family:var(--f-body);font-size:11px;font-weight:400;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:2px 6px;justify-self:start}
 .rbody{display:grid;gap:2px;min-width:0}
 .rout{font-size:13px;font-weight:500}
@@ -181,7 +183,7 @@ footer a{color:var(--muted)}
       <button class="tab" role="tab" id="tab-matches" aria-selected="true">試合結果</button>
       <button class="tab" role="tab" id="tab-fixtures" aria-selected="false">日程</button>
       <button class="tab" role="tab" id="tab-players" aria-selected="false">選手別成績</button>
-      <button class="tab" role="tab" id="tab-ratings" aria-selected="false">現地の採点</button>
+      <button class="tab" role="tab" id="tab-ratings" aria-selected="false">現地の評価</button>
     </div>
     <div class="row" id="chips"></div>
     <div class="row">
@@ -548,46 +550,14 @@ footer a{color:var(--muted)}
 ["2026-11-06", "29:45", "PPL", "第11節", "ファマリカン", "アロウカ"]
 ],
 "ratings":[
+["2026-10-10", "瀬古歩夢", "Maxifoot", "フランス", null, "", "60分、決定機に向かう相手FWを止めて一発退場。ル・アーヴルは10人で戦うことに", "https://m.maxifoot.fr/ligue-1/lille-1-0-le-havre-fini-foot-465398.htm", true, "report"],
 ["2026-10-10", "瀬古歩夢", "Maxifoot", "フランス", 3.5, "10点満点", "前半は堅実も、決定機の相手を止めて一発退場。チームを10人にした", "https://www.maxifoot.fr/football/article-66221.htm", true],
 ["2026-10-10", "中村草太", "Maxifoot", "フランス", 6, "10点満点", "サイドで積極的に仕掛け、危険なクロスと味方との連係を見せた", "https://www.maxifoot.fr/football/article-66221.htm", true],
 ["2026-10-11", "鎌田大地", "dave.sport", "イギリス", 7.5, "10点満点", "前半41分の同点弾で試合の流れを変えた", "https://dave.sport/news/crystal-palace-vs-nottingham-forest-player-ratings/", true],
 ["2026-10-10", "鈴木彩艶", "dave.sport", "イギリス", 6.5, "10点満点", "3本のセーブを記録", "https://dave.sport/news/aston-villa-vs-brentford-player-ratings/", true],
 ["2026-10-10", "鈴木彩艶", "Villa News", "イギリス", 6, "10点満点", "点数のみで寸評なし", "https://sports.yahoo.com/articles/aston-villa-player-ratings-vs-154919140.html", true],
 ["2026-10-10", "田中碧", "Yorkshire Evening Post", "イギリス", 7, "10点満点", "前半はチーム随一の働き。相手のカウンターを止める守備も光った", "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/lee-sobots-leeds-united-player-ratings-vs-arsenal-9276036", true],
-["2026-10-10", "田中碧", "The National", "UAE", 7, "10点満点", "丁寧なパス回しとボールのない所での献身。後半は運動量が落ちて交代", "https://www.thenationalnews.com/sport/football/2026/10/10/arsenal-v-leeds-player-ratings-odegaard-8-guimaraes-7-calvert-lewin-7-trafford-4/", true],
-["2026-10-13", "平河悠", "Bristol Live", "イギリス", 6.5, "10点満点", "後半から入って勢いをもたらし、得点まであと一歩。終盤はやや失速", "https://uk.sports.yahoo.com/news/bristol-city-player-ratings-vs-210920688.html", true],
-["2026-10-13", "上田綺世", "Foot Mercato", "フランス", 5, "10点満点", "前半の得点はオフサイドで取り消し。好機が少ない中でロングボールを競り続けた", "https://www.footmercato.net/a1735316580808772931-arsenal-losc-les-notes-du-match", true],
-["2026-10-13", "上田綺世", "433foot", "フランス", 5, "10点満点", "前線で孤立。周囲の支援が乏しく持ち味を出せなかった", "https://www.433foot.fr/les-notes-darsenal-lille-3-0-haraldsson-4-et-bakwa-4-symboles-dun-lille-surpasse/", true],
-["2026-10-13", "佐野航大", "VoetbalPrimeur", "オランダ", 7, "10点満点", "チームのボール回しを動かし、CLの舞台でも通用することを示した", "https://www.voetbalprimeur.nl/nieuws/2146483/spelersrapport-psv-na-champions-league-duel-met-rb-leipzig.html", true],
-["2026-10-12", "坂元達裕", "dave.sport", "イギリス", 6.5, "10点満点", "61分から出場し、約30分でパス成功率は60%", "https://dave.sport/news/coventry-city-vs-newcastle-player-ratings/", true],
-["2026-10-12", "坂元達裕", "The False 9", "イギリス", 6, "10点満点", "途中出場でチームの攻撃の幅を保った", "https://thefalse9.com/2026/10/coventry-4-1-newcastle-player-ratings-cherif.html", true],
-["2026-10-11", "守田英正", "Yorkshire Post", "イギリス", 6, "10点満点", "質の高さを見せる場面があり、今後につなげたい内容", "https://www.yorkshirepost.co.uk/sport/football/hull-city-player-ratings-the-good-and-the-bad-of-2-2-draw-9280682", true],
-["2026-10-11", "守田英正", "dave.sport", "イギリス", 6.5, "10点満点", "途中出場の約15分間でパスをすべて成功させた", "https://dave.sport/news/hull-city-2-2-everton-player-ratings/", true],
-["2026-10-11", "守田英正", "The False 9", "イギリス", 6, "10点満点", "終盤に中盤へ入ったが、関与する場面は少なかった", "https://thefalse9.com/2026/10/hull-city-2-2-everton-player-ratings.html", true],
-["2026-10-11", "鎌田大地", "Roundtable", "アメリカ", 7, "10点満点", "前半は目立たずも同点弾を決め、後半は落ち着いた配球で逃げ切りに貢献", "https://roundtable.io/sports/soccer/premier-league/crystal-palace/opinion/crystal-palace-player-ratings-after-beating-nottingham-forest", true],
-["2026-10-11", "鎌田大地", "Sportsdunia", "インド", 7.5, "10点満点", "点数のみで寸評なし", "https://www.sportsdunia.com/football-ratings/crystal-palace-vs-nottingham-forest-player-ratings-epl-11th-october-2026", true],
-["2026-10-11", "橋岡大樹", "Gladbach LIVE", "ドイツ", 4, "ドイツ式（1が最高・6が最低）", "負傷の板倉に代わり出場。相手FWに2度突破され、2失点目にも関与", "https://www.gladbachlive.de/news/gladbach-noten-bei-derby-pleite-offensive-unsichtbar-in-koeln-1393601", true],
-["2026-10-11", "町野修斗", "Gladbach LIVE", "ドイツ", 4.5, "ドイツ式（1が最高・6が最低）", "途中出場も、交代した選手と同じく存在感を示せなかった", "https://www.gladbachlive.de/news/gladbach-noten-bei-derby-pleite-offensive-unsichtbar-in-koeln-1393601", true],
-["2026-10-11", "宇野禅斗", "Gladbach LIVE", "ドイツ", 4, "ドイツ式（1が最高・6が最低）", "流れは変えられず。終盤の強烈なシュートは相手に当たり防がれた", "https://www.gladbachlive.de/news/gladbach-noten-bei-derby-pleite-offensive-unsichtbar-in-koeln-1393601", true],
-["2026-10-11", "田中聡", "SchalkeTOTAL", "ドイツ", 3.5, "ドイツ式（1が最高・6が最低）", "序盤から精力的に走りパスも良好。1対1の競り合いは課題", "https://schalketotal.de/2026/10/11/gantenbein-empfiehlt-sich-fuer-mehr-schalke-in-der-einzelkritik-gegen-freiburg/", true],
-["2026-10-11", "後藤啓介", "Get Football News Germany", "ドイツ", 7, "10点満点", "終盤にヘディングで勝ち越し点を決めた", "https://www.getfootballnewsgermany.com/2026/bundesliga-scr-s04-ratings/", true],
-["2026-10-11", "鈴木唯人", "Get Football News Germany", "ドイツ", 5, "10点満点", "異議で警告を受け、64分に相手を踏みつけて2枚目の警告で退場", "https://www.getfootballnewsgermany.com/2026/bundesliga-scr-s04-ratings/", true],
-["2026-10-11", "田中聡", "Get Football News Germany", "ドイツ", 5, "10点満点", "点数のみで寸評なし", "https://www.getfootballnewsgermany.com/2026/bundesliga-scr-s04-ratings/", true],
-["2026-10-11", "菅原由勢", "L'Unione Sarda", "イタリア", 6, "10点満点", "投入後はほぼ守備に専念した", "https://www.unionesarda.it/sport/calcio/cagliari-juventus-le-pagelle-rossoblu-maldini-altro-record-caprile-fenomenale-yoiz8oby", true],
-["2026-10-11", "菅原由勢", "TuttoMercatoWeb", "イタリア", 6, "10点満点", "前目の位置で入り、その後は下がって引き分けを守る役割をこなした", "https://www.tuttomercatoweb.com/serie-a/cagliari-juve-1-1-pagelle-spalletti-cocciuto-kolo-muani-maldini-conferma-2282339", true],
-["2026-10-11", "菅原由勢", "La Nuova Sardegna", "イタリア", 6, "10点満点", "闘志を見せて引かずに戦い、役割を果たした", "https://www.lanuovasardegna.it/sport/2026/10/11/news/cagliari-juventus-1-1-caprile-decisivo-maldini-ancora-micidiale-le-pagelle-1.100928608", true],
-["2026-10-11", "菅原由勢", "CagliariPad", "イタリア", 6, "10点満点", "激しい戦いを求められ、しっかり応えた", "https://www.cagliaripad.it/679207/cagliari-juventus-1-1-le-pagelle-maldini-ha-le-ali-mina-provoca-e-trascina/", true],
-["2026-10-11", "菅原由勢", "CalcioMercato.it", "イタリア", 5.5, "10点満点", "点数のみで寸評なし", "https://www.calciomercato.it/2026/10/11/pagelle-e-tabellino-cagliari-juventus-1-1-kolo-muani-risponde-a-maldini/", true],
-["2026-10-11", "宮代大聖", "UDLasPalmas.net", "スペイン", 1, "10点満点", "存在感がなく、ここ1か月は役割が定まらない状態が続く", "https://www.udlaspalmas.net/2026/10/11/uno-x-uno-los-amarillos-ante-el-mallorca-las-notas-3/", true],
-["2026-10-13", "上田綺世", "Le Petit Lillois", "フランス", 3.5, "10点満点", "ガブリエルに封じられて孤立し、前線でほぼ違いを作れず", "https://lepetitlillois.com/2026/10/13/collectif-pas-fonctionne-notes-dogues-arsenal-fc-losc/", true],
-["2026-10-11", "長田澪", "Get Football News Germany", "ドイツ", 4, "10点満点", "点数のみで寸評なし", "https://www.getfootballnewsgermany.com/2026/bundesliga-freiburg-schalke-goto-ratings/", true],
-["2026-10-13", "上田綺世", "Maxifoot", "フランス", 4.5, "10点満点", "前半は空中戦で起点になり落としも正確だったが、後半は存在感が消えた", "https://www.maxifoot.fr/football/article-66254.htm", true],
-["2026-10-10", "前田大然", "The False 9", "イギリス", 6, "10点満点", "右サイドでよく走ったが、決定的な仕事は少なかった", "https://thefalse9.com/2026/10/ipswich-2-1-fulham-player-ratings.html", true],
-["2026-10-10", "前田大然", "dave.sport", "イギリス", 6.5, "10点満点", "81分までプレーし、キーパス1本。パス成功率は63%", "https://dave.sport/news/ipswich-town-vs-fulham-player-ratings/", true],
-["2026-10-10", "田中碧", "The False 9", "イギリス", 5, "10点満点", "警告を受け、後半は押し込まれて71分に交代", "https://thefalse9.com/2026/10/arsenal-2-1-leeds-player-ratings-bruno-guimaraes.html", true],
-["2026-10-10", "田中碧", "BBC", "イギリス", 7, "10点満点", "ボールを持つと冷静で、中盤で献身的に走り続けた", "https://sports.yahoo.com/articles/changed-game-player-ratings-arsenal-133407963.html", true],
-["2026-10-10", "田中碧", "MOT Leeds News", "イギリス", 5, "10点満点", "点数のみで寸評なし", "https://motleedsnews.com/match/leeds-united-player-ratings-vs-arsenal-calvert-lewin-immense-410-the-weak-point", true],
-["2026-10-10", "鈴木彩艶", "Express & Star", "イギリス", 6, "10点満点", "後半早々に好セーブ。失点は防ぎようがなく、キックはやや不安定", "https://www.expressandstar.com/sport/aston-villa-player-ratings-striker-impresses-on-frustrating-day-9279927", true]
+["2026-10-10", "田中碧", "The National", "UAE", 7, "10点満点", "丁寧なパス回しとボールのない所での献身。後半は運動量が落ちて交代", "https://www.thenationalnews.com/sport/football/2026/10/10/arsenal-v-leeds-player-ratings-odegaard-8-guimaraes-7-calvert-lewin-7-trafford-4/", true]
 ]
 }
 </script>
@@ -790,10 +760,12 @@ footer a{color:var(--muted)}
   }
 
   // 現地メディアの採点
-  const ratings = (D.ratings||[]).map(r => ({date:r[0], name:r[1], outlet:r[2], country:r[3], score:r[4], scale:r[5], note:r[6], url:r[7], orig:r[8]!==false}));
+  const ratings = (D.ratings||[]).map(r => ({date:r[0], name:r[1], outlet:r[2], country:r[3], score:r[4], scale:r[5], note:r[6], url:r[7], orig:r[8]!==false, kind:r[9]||"rating"}));
+  const KIND = {rating:"採点", report:"試合レポート", article:"記事"};
+  const KIND_ORDER = {rating:0, report:1, article:2};
   const ratingsFor = (date, name) => ratings.filter(r => r.date===date && r.name===name);
   const scoreClass = r => (r.scale==="10点満点" && r.score!=null) ? (r.score>=7?"hi":r.score<=5?"lo":"") : "";
-  const scoreHTML = r => r.score==null ? `<span class="rs none">寸評</span>` : `<span class="rs ${scoreClass(r)}">${r.score}<small>${r.scale==="10点満点"?"/10":esc(r.scale)}</small></span>`;
+  const scoreHTML = r => r.score==null ? `<span class="rs none k-${r.kind}">${r.kind==="rating"?"寸評":KIND[r.kind]||"記事"}</span>` : `<span class="rs ${scoreClass(r)}">${r.score}<small>${r.scale==="10点満点"?"/10":esc(r.scale)}</small></span>`;
   // 持ち主だけに出す「今すぐ採点を探す」ボタン（claude.ai 上でのみ動作）
   const RATING_TASK = "trig_01FYP3gBh5qRhy2xsoKLC6hB";
   const owner = {ready:false, mcp:null, msg:"", busy:false};
@@ -828,7 +800,7 @@ footer a{color:var(--muted)}
   const ownerPanel = () => {
     if(!owner.ready) return "";
     const lf = lastFire(), mins = lf ? Math.round((Date.now()-lf)/60000) : null;
-    return `<div class="owner"><button class="obtn" id="fire-ratings" ${owner.busy?"disabled":""}>今すぐ採点を探す</button>
+    return `<div class="owner"><button class="obtn" id="fire-ratings" ${owner.busy?"disabled":""}>今すぐ現地の評価を探す</button>
       <span class="note">あなたにだけ表示されています。${mins!=null?`前回の依頼は${mins<60?mins+"分":Math.round(mins/60)+"時間"}前。`:""}定期チェックは3時間ごとです。</span>
       ${owner.msg?`<p class="omsg">${esc(owner.msg)}</p>`:""}</div>`;
   };
@@ -843,11 +815,11 @@ footer a{color:var(--muted)}
       if(q && !(r.name.includes(q) || p.club.includes(q) || r.outlet.includes(q))) return;
       const k = r.date+"|"+r.name;
       (groups[k] = groups[k] || {m, p, list:[]}).list.push(r);
-      groups[k].list.sort((a,b) => (b.orig-a.orig));
+      groups[k].list.sort((a,b) => (KIND_ORDER[a.kind]??3)-(KIND_ORDER[b.kind]??3) || ((b.score!=null)-(a.score!=null)));
     });
     const gs = Object.values(groups).sort((a,b) => b.m.date.localeCompare(a.m.date) || a.p.name.localeCompare(b.p.name,"ja"));
-    const intro = `<p class="note r-intro">海外メディアが報じた日本人選手の採点と寸評です。点数の尺度は媒体ごとに異なります（表示は10点満点、数字が大きいほど高評価）。採点した海外メディアの元記事を直接確認したものだけを載せています（日本語の報道は使っていません）。寸評は元記事の要点を短くまとめたもので、原文は「元記事を読む」から確認できます。</p>`;
-    if(!gs.length) return ownerPanel() + weekNav() + intro + `<p class="empty">この週の採点はまだ登録されていません。</p>`;
+    const intro = `<p class="note r-intro">海外の現地メディアが日本人選手をどう伝えたかをまとめています。採点のほか、試合レポートや通常の記事で取り上げられたものも載せています。点数の尺度は媒体ごとに異なります（表示は10点満点、数字が大きいほど高評価）。すべて海外メディアの元記事を直接確認したもので、日本語の報道は使っていません。内容は元記事の要点を短くまとめたもので、原文は「元記事を読む」から確認できます。</p>`;
+    if(!gs.length) return ownerPanel() + weekNav() + intro + `<p class="empty">この週の現地の評価はまだ登録されていません。</p>`;
     return ownerPanel() + weekNav() + intro + `<div class="rlist">${gs.map(({m,p,list}) => {
       const res = resultFor(m, p.club);
       return `<article class="rcard">
