@@ -605,7 +605,7 @@ footer a{color:var(--muted)}
   };
 
   let state = {tab:"matches", country:"ALL", q:"", playedOnly:false, sort:{key:"g",dir:-1}, pview:"period",
-    week: [...weeks].reverse().find(w => weekEnd(w) < D.updated) || weeks[weeks.length-1] || "",
+    week: (weeks.includes(weekStart(todayISO)) ? weekStart(todayISO) : weeks[weeks.length-1]) || "",
     month: months.find(m => m >= todayISO.slice(0,7)) || months[months.length-1] || todayISO.slice(0,7)};
   try{ const s = JSON.parse(localStorage.getItem("kaigai-ui")||"{}"); if(s.tab) state.tab=s.tab; if(s.country) state.country=s.country; if(s.pview) state.pview=s.pview; }catch(e){}
   const save = () => { try{ localStorage.setItem("kaigai-ui", JSON.stringify({tab:state.tab,country:state.country,pview:state.pview})); }catch(e){} };
@@ -868,7 +868,7 @@ footer a{color:var(--muted)}
   function render(){ view.innerHTML = state.tab==="matches" ? renderMatches() : state.tab==="fixtures" ? renderFixtures() : state.tab==="ratings" ? renderRatings() : renderPlayers(); }
 
   document.getElementById("foot").innerHTML =
-    `欧州のクラブに所属する日本人選手（男子）の公式戦を対象に、毎朝更新しています。出場状況は以下の情報をもとにまとめています：` +
+    `欧州のクラブに所属する日本人選手（男子）の公式戦を対象に、試合の終了に合わせて1日4回更新しています。出場状況は以下の情報をもとにまとめています：` +
     D.sources.map(s => ` <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join("、") +
     `。親善試合・代表戦は含みません。`;
 
