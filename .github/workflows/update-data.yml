@@ -1,0 +1,51 @@
+name: 試合データ更新
+
+on:
+  schedule:
+    # 毎時17分（UTC）。日本時間でも毎時17分。
+    - cron: "17 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 試合結果・日程・通算成績を取り込む
+        id: run
+        run: |
+          python3 scripts/update_data.py | tee /tmp/update.log
+          if git diff --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: 変更があればコミットして公開
+        if: steps.run.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -q -F - <<MSG
+          データ自動更新 $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M')
+
+          $(cat /tmp/update.log)
+          MSG
+          for i in 1 2 3; do
+            if git push -q origin HEAD:main; then exit 0; fi
+            # 現地の評価の追加と同時に動いた場合は、最新を取り込んでから更新し直す
+            git fetch -q origin main
+            git reset -q --hard origin/main
+            python3 scripts/update_data.py > /tmp/update.log
+            git diff --quiet && exit 0
+            git add index.html
+            git commit -q -m "データ自動更新 $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M')"
+            sleep 5
+          done
+          exit 1
