@@ -5,6 +5,13 @@ on:
     # 毎時17分（UTC）。日本時間でも毎時17分。
     - cron: "17 * * * *"
   workflow_dispatch: {}
+  # プログラムや対応表を変更したときもすぐに動かす（自動更新が書き換えるのは index.html だけなので繰り返しにはならない）
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "data/aliases.json"
+      - ".github/workflows/update-data.yml"
 
 permissions:
   contents: write
