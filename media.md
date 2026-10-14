@@ -145,11 +145,11 @@
 
 ## フランス
 
-検索キーワードの例: "<クラブ> notes <相手>" / "les notes des joueurs"
+検索キーワードの例: "<クラブ> notes <相手>" / "les notes des joueurs" / "Débrief et NOTES des joueurs"
 
-### ASモナコ
+### 全クラブ共通（最初に見る）
 
-- [Maxifoot](https://www.maxifoot.fr/foot-matchs_ligue1.htm)（現地メディア）
+- [Maxifoot](https://www.maxifoot.fr/foot-matchs_ligue1.htm)（現地メディア）：リーグ・アンの全試合で「Débrief et NOTES des joueurs」（10点満点）を掲載。上のページの各試合欄から採点記事に入れる。記事URLは https://www.maxifoot.fr/football/article-番号.htm の形。欧州カップ戦の採点も出ることがある。途中出場で出場時間が短い選手は採点なし（寸評もなし）のことが多い。
 
 ### スタッド・ランス
 
