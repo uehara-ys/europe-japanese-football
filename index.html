@@ -890,7 +890,7 @@ footer a{color:var(--muted)}
     if(!owner.ready) return "";
     const lf = lastFire(), mins = lf ? Math.round((Date.now()-lf)/60000) : null;
     return `<div class="owner"><button class="obtn" id="fire-ratings" ${owner.busy?"disabled":""}>今すぐ現地の評価を探す</button>
-      <span class="note">あなたにだけ表示されています。${mins!=null?`前回の依頼は${mins<60?mins+"分":Math.round(mins/60)+"時間"}前。`:""}定期チェックは3時間ごとです。</span>
+      <span class="note">あなたにだけ表示されています。${mins!=null?`前回の依頼は${mins<60?mins+"分":Math.round(mins/60)+"時間"}前。`:""}定期チェックは1日3回です。</span>
       ${owner.msg?`<p class="omsg">${esc(owner.msg)}</p>`:""}</div>`;
   };
 
@@ -962,7 +962,7 @@ footer a{color:var(--muted)}
   function render(){ view.innerHTML = state.tab==="matches" ? renderMatches() : state.tab==="fixtures" ? renderFixtures() : state.tab==="ratings" ? renderRatings() : renderPlayers(); }
 
   document.getElementById("foot").innerHTML =
-    `欧州のクラブに所属する日本人選手（男子）の公式戦を対象に、試合の終了に合わせて1日4回更新しています。出場状況は以下の情報をもとにまとめています：` +
+    `欧州のクラブに所属する日本人選手（男子）の公式戦を対象に、試合結果・日程・通算成績は1時間ごと、現地の評価は1日3回更新しています。出場状況は以下の情報をもとにまとめています：` +
     D.sources.map(s => ` <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join("、") +
     `。親善試合・代表戦は含みません。`;
 
