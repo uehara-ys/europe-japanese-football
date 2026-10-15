@@ -266,6 +266,11 @@
 - [Burnley Express](https://www.burnleyexpress.net/sport/football/burnley-fc)（バーンリーの地元紙。選手採点。10点満点）
 - [A Bola](https://www.abola.pt/)（ポルトガル大手スポーツ紙。試合記事の末尾に全選手の採点。寸評なし）
 - [Voetbalzone](https://www.voetbalzone.nl/)（オランダ。PSV・フェイエノールトなどの「op rapport」。10点満点。寸評なしの選手あり）
+- [But! Football Club](https://www.butfootballclub.fr/)（フランス。リヨンの試合ごとの「les notes des Lyonnais」。10点満点）
+- [GOAL（英語版）](https://www.goal.com/en/)（プレミアのクラブの欧州カップ戦などで「player ratings」。10点満点）
+- [Salzburg24](https://www.salzburg24.at/sport/fussball/)・[LAOLA1](https://www.laola1.at/de/red/fussball/)（オーストリア。ザルツブルクの「Noten」。1〜5で小さいほど高評価。LAOLA1は点数が画像で読めないことあり）
+- [Gol24](https://gol24.pl/)（ポーランド。ヤギェウォニアの「oceny piłkarzy」。10点満点、寸評なし）
+- [Mondo](https://mondo.rs/)・[Nova.rs](https://nova.rs/)・[Kurir](https://www.kurir.rs/)・[Sportinjo（Informer）](https://sportinjo.informer.rs/)・[Max-Sport](https://www.max-sport.rs/)・[B92](https://www.b92.net/sport)（セルビア。レッドスターの「ocene」。10点満点、寸評あり）
 
 ## メモ（読めなかった媒体など）
 
