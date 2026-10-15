@@ -265,6 +265,7 @@
 - [Aston Villa Review](https://www.astonvillareview.com/)（アストン・ヴィラ専門の独立系メディア。選手採点。10点満点）
 - [Burnley Express](https://www.burnleyexpress.net/sport/football/burnley-fc)（バーンリーの地元紙。選手採点。10点満点）
 - [A Bola](https://www.abola.pt/)（ポルトガル大手スポーツ紙。試合記事の末尾に全選手の採点。寸評なし）
+- [Voetbalzone](https://www.voetbalzone.nl/)（オランダ。PSV・フェイエノールトなどの「op rapport」。10点満点。寸評なしの選手あり）
 
 ## メモ（読めなかった媒体など）
 
