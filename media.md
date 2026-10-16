@@ -271,6 +271,7 @@
 - [Salzburg24](https://www.salzburg24.at/sport/fussball/)・[LAOLA1](https://www.laola1.at/de/red/fussball/)（オーストリア。ザルツブルクの「Noten」。1〜5で小さいほど高評価。LAOLA1は点数が画像で読めないことあり）
 - [Gol24](https://gol24.pl/)（ポーランド。ヤギェウォニアの「oceny piłkarzy」。10点満点、寸評なし）
 - [Mondo](https://mondo.rs/)・[Nova.rs](https://nova.rs/)・[Kurir](https://www.kurir.rs/)・[Sportinjo（Informer）](https://sportinjo.informer.rs/)・[Max-Sport](https://www.max-sport.rs/)・[B92](https://www.b92.net/sport)（セルビア。レッドスターの「ocene」。10点満点、寸評あり）
+- [absolutfussball.com](https://www.absolutfussball.com/)（ドイツ。フランクフルトの「Eintracht-Klassenbuch」。点数ではなく言葉の段階評価と寸評）
 
 ## メモ（読めなかった媒体など）
 
