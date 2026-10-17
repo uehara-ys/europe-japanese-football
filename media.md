@@ -274,6 +274,8 @@
 - [absolutfussball.com](https://www.absolutfussball.com/)（ドイツ。フランクフルトの「Eintracht-Klassenbuch」。点数ではなく言葉の段階評価と寸評）
 - [Sheffield Star](https://www.thestar.co.uk/sport/football/sheffield-united)（シェフィールド・ユナイテッドの選手採点。10点満点。複数ページに分割）
 - [West London Sport](https://www.westlondonsport.com/qpr)（QPRの選手採点。10点満点、寸評あり）
+- [My Old Man Said](https://myoldmansaid.com/)（アストン・ヴィラのファンサイト。選手採点。10点満点、0.5刻み）
+- [The 4th Official](https://the4thofficial.net/)（プレミアの選手採点。10点満点、0.5刻み）
 
 ## メモ（読めなかった媒体など）
 
