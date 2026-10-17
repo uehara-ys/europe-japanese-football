@@ -272,6 +272,8 @@
 - [Gol24](https://gol24.pl/)（ポーランド。ヤギェウォニアの「oceny piłkarzy」。10点満点、寸評なし）
 - [Mondo](https://mondo.rs/)・[Nova.rs](https://nova.rs/)・[Kurir](https://www.kurir.rs/)・[Sportinjo（Informer）](https://sportinjo.informer.rs/)・[Max-Sport](https://www.max-sport.rs/)・[B92](https://www.b92.net/sport)（セルビア。レッドスターの「ocene」。10点満点、寸評あり）
 - [absolutfussball.com](https://www.absolutfussball.com/)（ドイツ。フランクフルトの「Eintracht-Klassenbuch」。点数ではなく言葉の段階評価と寸評）
+- [Sheffield Star](https://www.thestar.co.uk/sport/football/sheffield-united)（シェフィールド・ユナイテッドの選手採点。10点満点。複数ページに分割）
+- [West London Sport](https://www.westlondonsport.com/qpr)（QPRの選手採点。10点満点、寸評あり）
 
 ## メモ（読めなかった媒体など）
 
