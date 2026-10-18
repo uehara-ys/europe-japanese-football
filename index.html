@@ -151,6 +151,9 @@ td.acol{color:var(--blue);font-weight:600}
 .rsrc{font-size:12px;color:var(--muted)}
 .rsrc.unv{color:var(--faint)}
 .rsrc.unv a{color:var(--faint)}
+.rbbc{font-size:12px;color:var(--muted)}
+.rbbc a{color:inherit}
+.rbbc small{color:var(--faint)}
 .rchip{font-family:var(--f-mono);font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:0 5px}
 .rchip.hi{color:var(--blue)}.rchip.lo{color:var(--red)}
 .tabs{flex-wrap:wrap;row-gap:6px}
@@ -1100,6 +1103,7 @@ footer a{color:var(--muted)}
   const ratings = (D.ratings||[]).map(r => ({date:r[0], name:r[1], outlet:r[2], country:r[3], score:r[4], scale:r[5], note:r[6], url:r[7], orig:r[8]!==false, kind:r[9]||"rating"}));
   const KIND = {rating:"採点", report:"試合レポート", article:"記事"};
   const KIND_ORDER = {rating:0, report:1, article:2};
+  const bbcURL = m => `https://www.bbc.co.uk/sport/football/scores-fixtures/${m.date}`;
   const ratingsFor = (date, name) => ratings.filter(r => r.date===date && r.name===name);
   const scoreClass = r => (r.scale==="10点満点" && r.score!=null) ? (r.score>=7?"hi":r.score<=5?"lo":"") : "";
   const scoreHTML = r => r.score==null ? `<span class="rs none k-${r.kind}">${r.kind==="rating"?"寸評":KIND[r.kind]||"記事"}</span>` : `<span class="rs ${scoreClass(r)}">${r.score}<small>${r.scale==="10点満点"?"/10":esc(r.scale)}</small></span>`;
@@ -1154,8 +1158,14 @@ footer a{color:var(--muted)}
       (groups[k] = groups[k] || {m, p, list:[]}).list.push(r);
       groups[k].list.sort((a,b) => (KIND_ORDER[a.kind]??3)-(KIND_ORDER[b.kind]??3) || ((b.score!=null)-(a.score!=null)));
     });
-    const gs = Object.values(groups).sort((a,b) => b.m.date.localeCompare(a.m.date) || a.p.name.localeCompare(b.p.name,"ja"));
-    const intro = `<p class="note r-intro">海外の現地メディアが日本人選手をどう伝えたかをまとめています。採点のほか、試合レポートや通常の記事で取り上げられたものも載せています。点数の尺度は媒体ごとに異なります（表示は10点満点、数字が大きいほど高評価）。すべて海外メディアの元記事を直接確認したもので、日本語の報道は使っていません。内容は元記事の要点を短くまとめたもので、原文は「元記事を読む」から確認できます。</p>`;
+    // プレミアリーグで出場した選手は、登録された評価がなくてもBBCの読者採点へのリンクを出す
+    matches.filter(inWeek).filter(inCountry).filter(m => m.comp==="PL").forEach(m => m.players.filter(played).forEach(p => {
+      if(q && !(p.name.includes(q) || p.club.includes(q) || "BBC".includes(q))) return;
+      const k = m.date+"|"+p.name;
+      if(!groups[k]) groups[k] = {m, p, list:[]};
+    }));
+    const gs =Object.values(groups).sort((a,b) => b.m.date.localeCompare(a.m.date) || a.p.name.localeCompare(b.p.name,"ja"));
+    const intro = `<p class="note r-intro">海外の現地メディアが日本人選手をどう伝えたかをまとめています。採点のほか、試合レポートや通常の記事で取り上げられたものも載せています。点数の尺度は媒体ごとに異なります（表示は10点満点、数字が大きいほど高評価）。すべて海外メディアの元記事を直接確認したもので、日本語の報道は使っていません。内容は元記事の要点を短くまとめたもので、原文は「元記事を読む」から確認できます。プレミアリーグの試合には、BBCの読者投票による採点ページへのリンクも付けています（点数はBBCのページで確認してください）。</p>`;
     if(!gs.length) return ownerPanel() + weekNav() + intro + `<p class="empty">この週の現地の評価はまだ登録されていません。</p>`;
     return ownerPanel() + weekNav() + intro + `<div class="rlist">${gs.map(({m,p,list}) => {
       const res = resultFor(m, p.club);
@@ -1165,7 +1175,8 @@ footer a{color:var(--muted)}
           <div class="rmatch">${fmtDate(m.date)} ${esc(m.compName)}　${esc(m.home)} ${m.hs}-${m.as} ${esc(m.away)}${res?` <span class="res ${res}">${{W:"勝ち",D:"引き分け",L:"負け"}[res]}</span>`:""}</div>
           <div class="rstat">${stLabel(p)}${p.g?` <span class="ga">${p.g}ゴール</span>`:""}${p.a?` <span class="ga a">${p.a}アシスト</span>`:""}${p.note?` <span class="note">${esc(p.note)}</span>`:""}</div>
         </header>
-        <ul class="rrows">${list.map(r => `<li>${scoreHTML(r)}<div class="rbody"><div class="rout">${esc(r.outlet)}${r.country?`<small>（${esc(r.country)}）</small>`:""}</div><div class="rnote">${esc(r.note)}</div>${r.orig?`<a class="rsrc" href="${esc(r.url)}" target="_blank" rel="noopener">元記事を読む</a>`:`<span class="rsrc unv">元記事は未確認・<a href="${esc(r.url)}" target="_blank" rel="noopener">日本語の報道</a>より</span>`}</div></li>`).join("")}</ul>
+        ${list.length?`<ul class="rrows">${list.map(r => `<li>${scoreHTML(r)}<div class="rbody"><div class="rout">${esc(r.outlet)}${r.country?`<small>（${esc(r.country)}）</small>`:""}</div><div class="rnote">${esc(r.note)}</div>${r.orig?`<a class="rsrc" href="${esc(r.url)}" target="_blank" rel="noopener">元記事を読む</a>`:`<span class="rsrc unv">元記事は未確認・<a href="${esc(r.url)}" target="_blank" rel="noopener">日本語の報道</a>より</span>`}</div></li>`).join("")}</ul>`:`<p class="rbbc">まだ登録された評価はありません。</p>`}
+        ${m.comp==="PL"?`<p class="rbbc"><a href="${esc(bbcURL(m))}" target="_blank" rel="noopener">BBCの採点（読者投票）を見る</a> <small>この日の試合一覧が開きます。該当の試合を選び「Player ratings」を開いてください。</small></p>`:""}
       </article>`;}).join("")}</div>`;
   }
 
