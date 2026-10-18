@@ -277,6 +277,8 @@
 - [My Old Man Said](https://myoldmansaid.com/)（アストン・ヴィラのファンサイト。選手採点。10点満点、0.5刻み）
 - [The 4th Official](https://the4thofficial.net/)（プレミアの選手採点。10点満点、0.5刻み）
 - [Eagle1861](https://eagle1861.substack.com/)（クリスタル・パレス専門のSubstack。試合ごとの選手採点と寸評。10点満点）
+- [La Diagonale](https://www.ladiagonale.net/)（フランス。モナコ専門ファンサイト。試合ごとの「Les notes de」。10点満点。トップ/フロップの選手は点数が画像で読めないことあり）
+- [Leeds United News](https://www.leedsunited.news/)（イングランド。リーズ専門。選手採点。10点満点、寸評あり）
 
 ## メモ（読めなかった媒体など）
 
