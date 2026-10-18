@@ -50,8 +50,8 @@
 
 ### サウサンプトン
 
-- [Daily Echo](https://www.dailyecho.co.uk/sport/saints/)（地元紙）
-- [Saints Marching](https://saintsmarching.com/)（専門メディア）
+- [Saints Marching](https://saintsmarching.com/)（専門メディア）：読み込み可。最初に見る
+- [Daily Echo](https://www.dailyecho.co.uk/sport/saints/)（地元紙）：取得ツールでブロックされ読めない
 
 ### コベントリー・シティ
 
@@ -63,7 +63,7 @@
 
 ### ボルトン
 
-- [The Bolton News](https://www.theboltonnews.co.uk/sport/wanderers/)（地元紙）
+- [The Bolton News](https://www.theboltonnews.co.uk/sport/wanderers/)（地元紙）：取得ツールでブロックされ読めない。Manchester Evening News・Lancashire Telegraph も同様に読めないため、BBC・スカイ・スポーツ・PA配信（The Irish News など）の試合レポートを先に見る
 
 ### 全国紙・全国メディア
 
@@ -280,3 +280,4 @@
 ## メモ（読めなかった媒体など）
 
 - kicker・L'Équipe・The Athletic は有料記事が多く、採点が読めないことがある。読めない場合は他の地元紙を優先する。
+- イングランドの地方紙の多く（Reach系・Newsquest系）は取得ツールでブロックされ読めない（2026-10-18確認：Daily Echo、The Bolton News、Hampshire Live、Manchester Evening News、Lancashire Telegraph、Bristol Post、Birmingham Mail、Hull Live）。回り道して読もうとせず、専門メディア（Saints Marching など）や全国メディア（BBC、スカイ・スポーツ、PA配信）を優先する。
