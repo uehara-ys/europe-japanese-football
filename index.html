@@ -26,7 +26,7 @@
 }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7}
-.wrap{max-width:720px;margin:0 auto;padding-block:56px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:40px}
+.wrap{max-width:720px;margin:0 auto;padding-block:56px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
 header{display:grid;gap:8px;border-top:3px solid var(--orange);padding-top:20px}
 .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--muted)}
 h1{font-family:var(--f-body);font-weight:500;font-size:clamp(26px,5vw,34px);line-height:1.3;letter-spacing:.04em;margin:0;text-wrap:balance}
@@ -126,6 +126,17 @@ td .club{color:var(--faint);font-size:12px;display:block}
 .segb+.segb{border-left:1px solid var(--line)}
 .segb[aria-pressed="true"]{background:var(--ink);color:#fff}
 td.gcol{color:var(--red);font-weight:600}
+.stand td{padding-block:8px}
+.stand td.rk{border-left:3px solid transparent;padding-left:8px;width:1%}
+.stand td.rk.z-cl{border-left-color:var(--blue)}
+.stand td.rk.z-el{border-left-color:color-mix(in srgb,var(--blue) 45%,transparent)}
+.stand td.rk.z-rel{border-left-color:var(--red)}
+.stand tr.jp td{background:color-mix(in srgb,var(--red) 7%,transparent)}
+.stand td .jpn{color:var(--red);font-size:12px;display:block;white-space:normal}
+.stand td.pts{font-weight:600;color:var(--ink)}
+@media (max-width:520px){.stand .hm{display:none}.stand th,.stand td{padding-inline:6px}}
+.zone-key{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:12px;color:var(--muted)}
+.zone-key span{border-left:3px solid;padding-left:6px}
 td.acol{color:var(--blue);font-weight:600}
 .note a{color:var(--muted)}
 .r-intro{margin:0 0 8px}
@@ -157,6 +168,7 @@ td.acol{color:var(--blue);font-weight:600}
 .rchip{font-family:var(--f-mono);font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:0 5px}
 .rchip.hi{color:var(--blue)}.rchip.lo{color:var(--red)}
 .tabs{flex-wrap:wrap;row-gap:6px}
+@media (max-width:420px){.tabs{column-gap:14px}}
 .owner{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;border:1px dashed var(--line);border-radius:6px;padding:10px 12px;margin:8px 0 4px}
 .obtn{font:inherit;font-size:14px;background:var(--orange);color:#fff;border:0;border-radius:4px;padding:6px 14px;cursor:pointer}
 .obtn:disabled{opacity:.5;cursor:default}
@@ -187,9 +199,10 @@ footer a{color:var(--muted)}
       <button class="tab" role="tab" id="tab-fixtures" aria-selected="false">日程</button>
       <button class="tab" role="tab" id="tab-players" aria-selected="false">選手別成績</button>
       <button class="tab" role="tab" id="tab-ratings" aria-selected="false">現地の評価</button>
+      <button class="tab" role="tab" id="tab-standings" aria-selected="false">順位表</button>
     </div>
     <div class="row" id="chips"></div>
-    <div class="row">
+    <div class="row" id="qrow">
       <input type="search" id="q" placeholder="選手名・クラブ名で絞り込み" aria-label="選手名・クラブ名で絞り込み">
       <label class="toggle" id="playedWrap"><input type="checkbox" id="playedOnly"> 出場した選手だけ表示</label>
     </div>
@@ -950,8 +963,9 @@ footer a{color:var(--muted)}
   let state = {tab:"matches", country:"ALL", q:"", playedOnly:false, sort:{key:"g",dir:-1}, pview:"period",
     week: (weeks.includes(weekStart(todayISO)) ? weekStart(todayISO) : weeks[weeks.length-1]) || "",
     month: months.find(m => m >= todayISO.slice(0,7)) || months[months.length-1] || todayISO.slice(0,7)};
-  try{ const s = JSON.parse(localStorage.getItem("kaigai-ui")||"{}"); if(s.tab) state.tab=s.tab; if(s.country) state.country=s.country; if(s.pview) state.pview=s.pview; }catch(e){}
-  const save = () => { try{ localStorage.setItem("kaigai-ui", JSON.stringify({tab:state.tab,country:state.country,pview:state.pview})); }catch(e){} };
+  state.league = "PL";
+  try{ const s = JSON.parse(localStorage.getItem("kaigai-ui")||"{}"); if(s.tab) state.tab=s.tab; if(s.country) state.country=s.country; if(s.pview) state.pview=s.pview; if(s.league) state.league=s.league; }catch(e){}
+  const save = () => { try{ localStorage.setItem("kaigai-ui", JSON.stringify({tab:state.tab,country:state.country,pview:state.pview,league:state.league})); }catch(e){} };
 
   // メタ
   const meta = document.getElementById("meta");
@@ -991,12 +1005,13 @@ footer a{color:var(--muted)}
   });
   document.getElementById("q").addEventListener("input", e => { state.q = e.target.value.trim(); render(); });
   document.getElementById("playedOnly").addEventListener("change", e => { state.playedOnly = e.target.checked; render(); });
-  const TABS = {matches:"tab-matches", fixtures:"tab-fixtures", players:"tab-players", ratings:"tab-ratings"};
+  const TABS = {matches:"tab-matches", fixtures:"tab-fixtures", players:"tab-players", ratings:"tab-ratings", standings:"tab-standings"};
   const setTab = t => {
     if(!TABS[t]) t = "matches";
     state.tab=t; save();
     Object.entries(TABS).forEach(([k,id]) => document.getElementById(id).setAttribute("aria-selected", k===t));
     document.getElementById("playedWrap").hidden = t==="fixtures" || t==="ratings";
+    chips.hidden = document.getElementById("qrow").hidden = t==="standings";
     render();
   };
   Object.entries(TABS).forEach(([k,id]) => document.getElementById(id).onclick = () => setTab(k));
@@ -1204,6 +1219,8 @@ footer a{color:var(--muted)}
   view.addEventListener("click", e => {
     const sb = e.target.closest(".segb[data-pv]");
     if(sb){ state.pview = sb.dataset.pv; save(); render(); return; }
+    const lb = e.target.closest(".segb[data-lg]");
+    if(lb){ state.league = lb.dataset.lg; save(); render(); return; }
     if(e.target.closest("#fire-ratings")){ fireRatingSearch(); return; }
     const wb = e.target.closest(".mbtn[data-w]");
     if(wb && wb.dataset.w){ state.week = wb.dataset.w; renderHL(); render(); return; }
@@ -1218,7 +1235,23 @@ footer a{color:var(--muted)}
     state.sort = state.sort.key===k ? {key:k, dir:-state.sort.dir} : {key:k, dir:(k==="name"||k==="comp")?1:-1};
     render();
   });
-  function render(){ view.innerHTML = state.tab==="matches" ? renderMatches() : state.tab==="fixtures" ? renderFixtures() : state.tab==="ratings" ? renderRatings() : renderPlayers(); }
+  // 5大リーグの順位表（ESPN のデータを1時間ごとに取り込み）
+  function renderStandings(){
+    const S = D.standings;
+    if(!S || !(S.leagues||[]).length) return `<p class="empty">順位表はまだ取り込まれていません。1時間ごとの自動更新で表示されるようになります。</p>`;
+    const lg = S.leagues.find(l => l.code===state.league) || S.leagues[0];
+    const zone = n => /^CL/.test(n) ? "z-cl" : /^(EL|ECL)/.test(n) ? "z-el" : /降格|入替/.test(n) ? "z-rel" : "";
+    const seg = `<div class="seg" role="group" aria-label="リーグ">${S.leagues.map(l => `<button class="segb" data-lg="${esc(l.code)}" aria-pressed="${l.code===lg.code}">${esc(l.name)}</button>`).join("")}</div>`;
+    const sign = n => n>0 ? "+"+n : String(n);
+    const zones = [["z-cl","CL出場圏"],["z-el","EL・ECL出場圏"],["z-rel","降格圏"]].filter(([z]) => lg.rows.some(r => zone(r[10])===z));
+    return seg + `<div class="tablewrap"><table class="stand"><thead><tr><th class="n">順位</th><th>クラブ</th><th class="n">試合</th><th class="n">勝</th><th class="n">分</th><th class="n">敗</th><th class="n hm">得点</th><th class="n hm">失点</th><th class="n">得失点差</th><th class="n">勝点</th></tr></thead>
+      <tbody>${lg.rows.map(r => { const jp = rosters[r[1]] || [];
+        return `<tr class="${jp.length?"jp":""}"><td class="n rk ${zone(r[10])}">${r[0]}</td><td><b>${esc(r[1])}</b>${jp.length?`<span class="jpn">${jp.map(esc).join("・")}</span>`:""}</td><td class="n">${r[2]}</td><td class="n">${r[3]}</td><td class="n">${r[4]}</td><td class="n">${r[5]}</td><td class="n hm">${r[6]}</td><td class="n hm">${r[7]}</td><td class="n">${sign(r[8])}</td><td class="n pts">${r[9]}</td></tr>`; }).join("")}</tbody></table></div>
+      ${zones.length?`<div class="zone-key">${zones.map(([z,l]) => `<span class="${z}" style="border-left-color:${z==="z-cl"?"var(--blue)":z==="z-el"?"color-mix(in srgb,var(--blue) 45%,transparent)":"var(--red)"}">${l}</span>`).join("")}</div>`:""}
+      <p class="note">${esc(lg.season||"")} の${esc(lg.name)}の順位表です（${esc(S.asOf.replace(/-/g,"/"))}時点、出典：<a href="${esc(S.source.url)}" target="_blank" rel="noopener">${esc(S.source.name)}</a>）。色の付いた行は日本人選手が所属するクラブです。1時間ごとに自動更新しています。</p>`;
+  }
+
+  function render(){ view.innerHTML = state.tab==="matches" ? renderMatches() : state.tab==="fixtures" ? renderFixtures() : state.tab==="ratings" ? renderRatings() : state.tab==="standings" ? renderStandings() : renderPlayers(); }
 
   document.getElementById("foot").innerHTML =
     `欧州のクラブに所属する日本人選手（男子）の公式戦を対象に、試合結果・日程・通算成績は1時間ごと、現地の評価は1日3回更新しています。出場状況は以下の情報をもとにまとめています：` +

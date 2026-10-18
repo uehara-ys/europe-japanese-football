@@ -11,6 +11,7 @@ on:
     paths:
       - "scripts/**"
       - "data/aliases.json"
+      - "data/standings_names.json"
       - ".github/workflows/update-data.yml"
 
 permissions:
@@ -27,10 +28,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 試合結果・日程・通算成績を取り込む
+      - name: 試合結果・日程・通算成績・順位表を取り込む
         id: run
         run: |
           python3 scripts/update_data.py | tee /tmp/update.log
+          python3 scripts/update_standings.py | tee -a /tmp/update.log || echo "順位表の更新に失敗（前回のまま）"
           if git diff --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
 
       - name: 変更があればコミットして公開
@@ -50,6 +52,7 @@ jobs:
             git fetch -q origin main
             git reset -q --hard origin/main
             python3 scripts/update_data.py > /tmp/update.log
+            python3 scripts/update_standings.py >> /tmp/update.log || true
             git diff --quiet && exit 0
             git add index.html
             git commit -q -m "データ自動更新 $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M')"
