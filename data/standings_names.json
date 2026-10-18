@@ -137,6 +137,11 @@
   "Conference League": "ECL",
   "Conference League Qualifiers": "ECL予選",
   "Relegation": "降格",
-  "Relegation Playoff": "入替戦"
+  "Relegation Playoff": "入替戦",
+  "Champions League qualifying": "CL予選",
+  "Conference League qualifying": "ECL予選",
+  "Europa League qualifying": "EL予選",
+  "Relegation playoff": "入替戦",
+  "Relegated": "降格"
  }
 }
