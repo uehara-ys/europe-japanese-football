@@ -276,6 +276,7 @@
 - [West London Sport](https://www.westlondonsport.com/qpr)（QPRの選手採点。10点満点、寸評あり）
 - [My Old Man Said](https://myoldmansaid.com/)（アストン・ヴィラのファンサイト。選手採点。10点満点、0.5刻み）
 - [The 4th Official](https://the4thofficial.net/)（プレミアの選手採点。10点満点、0.5刻み）
+- [Eagle1861](https://eagle1861.substack.com/)（クリスタル・パレス専門のSubstack。試合ごとの選手採点と寸評。10点満点）
 
 ## メモ（読めなかった媒体など）
 
