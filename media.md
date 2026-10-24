@@ -280,6 +280,7 @@
 - [La Diagonale](https://www.ladiagonale.net/)（フランス。モナコ専門ファンサイト。試合ごとの「Les notes de」。10点満点。トップ/フロップの選手は点数が画像で読めないことあり）
 - [Leeds United News](https://www.leedsunited.news/)（イングランド。リーズ専門。選手採点。10点満点、寸評あり）
 - [Loft For Words](https://loftforwords.fansnetwork.co.uk/)（QPRファンサイト。試合レポート内に選手採点。10点満点。短時間出場は採点なし）
+- [Centotrentuno](https://centotrentuno.com/)・[Italpress](https://www.italpress.com/)（イタリア。カリアリ専門／通信社。セリエAのpagelle。10点満点。Italpressは寸評なし）
 
 ## メモ（読めなかった媒体など）
 
