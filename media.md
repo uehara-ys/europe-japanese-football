@@ -238,6 +238,14 @@
 
 - [3point.dk](https://3point.dk/)（専門メディア）
 
+## ポルトガル
+
+検索キーワードの例: "site:abola.pt Arouca <相手>" / "<クラブ> <相手> crónica" / "Taichi Fukui"
+
+### アロウカ（福井太智）
+
+- [A Bola](https://www.abola.pt/)（ポルトガル大手スポーツ紙）：福井太智の試合は最初にここを見る。試合ごとの「crónica」（記事URLは https://www.abola.pt/noticias/…-cronica-数字 の形）の末尾に両チーム全選手の採点（10点満点、寸評なし）と「O melhor em campo」（最優秀選手）が載る。試合経過のライブブログ（https://www.abola.pt/futebol/jogo/…/liveblog）にもプレーの記述がある
+
 ## 採点の掲載を確認できた媒体（リスト外）
 
 - [dave.sport](https://dave.sport/news/)（イングランド・プレミアの各試合で選手採点を掲載。10点満点）
