@@ -290,6 +290,7 @@
 - [Loft For Words](https://loftforwords.fansnetwork.co.uk/)（QPRファンサイト。試合レポート内に選手採点。10点満点。短時間出場は採点なし）
 - [Centotrentuno](https://centotrentuno.com/)・[Italpress](https://www.italpress.com/)（イタリア。カリアリ専門／通信社。セリエAのpagelle。10点満点。Italpressは寸評なし）
 - [GOAL（ドイツ版）](https://www.goal.com/de/)（ドイツ。バイエルンなどの「Noten」。ドイツ式、短時間出場は採点なしで寸評のみ）
+- [Fantamaster](https://www.fantamaster.it/)（イタリア。セリエAの各試合の「pagelle」。10点満点、寸評なしでTOP/FLOPの選手を挙げる）
 
 ## メモ（読めなかった媒体など）
 
