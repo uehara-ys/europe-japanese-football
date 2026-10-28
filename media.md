@@ -294,6 +294,7 @@
 - [Calciomercato.com](https://www.calciomercato.com/)・[Tuttosport](https://www.tuttosport.com/)（イタリア。セリエAの各試合の「pagelle」。10点満点、寸評あり）
 - [Wetterauer Zeitung](https://www.wetterauer-zeitung.de/sport/eintracht-frankfurt/)（ドイツ。absolutfussballと同系の「Eintracht-Klassenbuch」を掲載。言葉の段階評価と寸評）
 - [VAVEL（英語版）](https://www.vavel.com/en/)（プレミアの試合ごとの「Post-Match Player Ratings」。10点満点、寸評あり）
+- [FCBinside](https://fcbinside.de/)・[Ligablatt](https://www.ligablatt.de/)・[echo24](https://www.echo24.de/sport/)（ドイツ。バイエルンの「Einzelkritik／Noten」。ドイツ式1〜6、寸評あり）
 
 ## メモ（読めなかった媒体など）
 
