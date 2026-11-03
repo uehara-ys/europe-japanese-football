@@ -298,6 +298,7 @@
 - [Mozzart Sport](https://www.mozzartsport.com/)（セルビア。レッドスターの試合レポートの先発一覧に各選手の採点を併記。10点満点、寸評なし）
 - [Lyonfoot](https://www.lyonfoot.com/)（フランス。リヨン専門。試合ごとの「Les notes」。10点満点、寸評あり。But! Football Club が読めないときは転載の Shango Media で確認可）
 - [Homme du Match](https://www.hommedumatch.fr/)（フランス。リーグ・アン各試合の「les notes complètes」。10点満点。途中出場は点数のみのことあり）
+- [LigaInsider](https://www.ligainsider.de/)（ドイツ。ブンデスリーガ各試合のレポート記事内に選手ごとの「Note」を掲載。ドイツ式1〜6、0.5刻み、寸評なし）
 
 ## メモ（読めなかった媒体など）
 
