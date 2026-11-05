@@ -277,6 +277,8 @@
 - [But! Football Club](https://www.butfootballclub.fr/)（フランス。リヨンの試合ごとの「les notes des Lyonnais」。10点満点）
 - [GOAL（英語版）](https://www.goal.com/en/)（プレミアのクラブの欧州カップ戦などで「player ratings」。10点満点）
 - [Salzburg24](https://www.salzburg24.at/sport/fussball/)・[LAOLA1](https://www.laola1.at/de/red/fussball/)（オーストリア。ザルツブルクの「Noten」。1〜5で小さいほど高評価。LAOLA1は点数が画像で読めないことあり）
+- [EAGLE](https://eagle1861.substack.com/)（クリスタル・パレス専門。選手採点。10点満点）
+- [B92](https://www.b92.net/sport/fudbal)（セルビア。レッドスターの「ocene」。点数なしの寸評）
 - [Gol24](https://gol24.pl/)（ポーランド。ヤギェウォニアの「oceny piłkarzy」。10点満点、寸評なし）
 - [Mondo](https://mondo.rs/)・[Nova.rs](https://nova.rs/)・[Kurir](https://www.kurir.rs/)・[Sportinjo（Informer）](https://sportinjo.informer.rs/)・[Max-Sport](https://www.max-sport.rs/)・[B92](https://www.b92.net/sport)（セルビア。レッドスターの「ocene」。10点満点、寸評あり）
 - [absolutfussball.com](https://www.absolutfussball.com/)（ドイツ。フランクフルトの「Eintracht-Klassenbuch」。点数ではなく言葉の段階評価と寸評）
