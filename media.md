@@ -301,6 +301,7 @@
 - [Lyonfoot](https://www.lyonfoot.com/)（フランス。リヨン専門。試合ごとの「Les notes」。10点満点、寸評あり。But! Football Club が読めないときは転載の Shango Media で確認可）
 - [Homme du Match](https://www.hommedumatch.fr/)（フランス。リーグ・アン各試合の「les notes complètes」。10点満点。途中出場は点数のみのことあり）
 - [LigaInsider](https://www.ligainsider.de/)（ドイツ。ブンデスリーガ各試合のレポート記事内に選手ごとの「Note」を掲載。ドイツ式1〜6、0.5刻み、寸評なし）
+- [Sportsdunia](https://www.sportsdunia.com/football-ratings)（インド。欧州各リーグ・欧州カップ戦の試合ごとの「Player Ratings」。10点満点、寸評なしのことあり）
 
 ## メモ（読めなかった媒体など）
 
