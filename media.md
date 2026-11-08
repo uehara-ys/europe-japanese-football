@@ -303,6 +303,7 @@
 - [LigaInsider](https://www.ligainsider.de/)（ドイツ。ブンデスリーガ各試合のレポート記事内に選手ごとの「Note」を掲載。ドイツ式1〜6、0.5刻み、寸評なし）
 - [Sportsdunia](https://www.sportsdunia.com/football-ratings)（インド。欧州各リーグ・欧州カップ戦の試合ごとの「Player Ratings」。10点満点、寸評なしのことあり）
 - [Attacking Football](https://www.attackingfootball.com/)（イングランド。チャンピオンシップなどの試合ごとの「Player Ratings」。サウサンプトンなど。10点満点とみられる、寸評あり）
+- [Dnevnik](https://www.dnevnik.rs/sport)（セルビア。ノヴィ・サドの日刊紙。ヴォイヴォディナ戦などの記事内の先発一覧に各選手の採点を併記。10点満点、寸評なし）
 
 ## メモ（読めなかった媒体など）
 
