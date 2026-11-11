@@ -306,6 +306,7 @@
 - [Attacking Football](https://www.attackingfootball.com/)（イングランド。チャンピオンシップなどの試合ごとの「Player Ratings」。サウサンプトンなど。10点満点とみられる、寸評あり）
 - [Dnevnik](https://www.dnevnik.rs/sport)（セルビア。ノヴィ・サドの日刊紙。ヴォイヴォディナ戦などの記事内の先発一覧に各選手の採点を併記。10点満点、寸評なし）
 - [Sport News Africa](https://sportnewsafrica.com/)（フランス語の汎アフリカ媒体。リーグ・アンの試合記事末尾に編集部の選手採点。10点満点、寸評なし）
+- [EPL Index](https://eplindex.com/)（プレミアの試合ごとの選手採点。Yahoo Sportsに転載。10点満点。寸評なしの選手あり）
 
 ## メモ（読めなかった媒体など）
 
