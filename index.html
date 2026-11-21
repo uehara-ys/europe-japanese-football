@@ -119,6 +119,9 @@ td .club{color:var(--faint);font-size:12px;display:block}
 .fx-comp{color:var(--faint)}
 .fx-names{color:var(--blue)}
 .fx-foot{margin-top:16px}
+.past-days{margin-top:20px;border-bottom:1px solid var(--line,rgba(127,127,127,.25));padding-bottom:8px}
+.past-days>summary{cursor:pointer;font-size:13px;color:var(--muted);padding:8px 0}
+.past-days .fx{opacity:.7}
 @media (max-width:480px){.cal-c{min-height:44px;padding:4px}.cnt::after{content:""}}
 .week-nav h2{font-size:17px}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:8px 0 14px;max-width:100%;flex-wrap:wrap}
@@ -1982,6 +1985,13 @@ footer a{color:var(--muted)}
   const pad = n => String(n).padStart(2,"0");
   const now = new Date();
   const todayISO = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+  // 終わった試合も日程カレンダーに出す（試合結果のデータから。今後の日程と同じ試合は重ねない）
+  const fxKeys = new Set(fixtures.map(f => `${f.date}|${f.home}|${f.away}`));
+  matches.forEach(m => {
+    if(m.date > todayISO || fxKeys.has(`${m.date}|${m.home}|${m.away}`)) return;
+    fixtures.push({date:m.date,time:"終了",comp:m.comp,round:m.round,home:m.home,away:m.away,compName:m.compName,country:m.country,
+      score:`${m.hs} - ${m.as}`,names:m.players.map(p => p.name)});
+  });
   const months = [...new Set(fixtures.map(f => f.date.slice(0,7)))].sort();
   // 週（月曜はじまり）
   const isoOf = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
@@ -2109,17 +2119,23 @@ footer a{color:var(--muted)}
     }
     const cal = `<div class="cal">${cells}</div>`;
 
-    const body = Object.keys(byDate).sort().map(d => `
+    const daySec = d => `
       <section class="day ${d<todayISO?"past":""}" id="d-${d}"><h3>${fmtDate(d)}${d===todayISO?` <span class="tag">今日</span>`:""}${d<todayISO?` <span class="tag muted">終了・結果は「試合結果」へ</span>`:""}</h3>
         <div class="fxs">${byDate[d].map(f => {
           const jh = !!rosters[f.home], ja = !!rosters[f.away];
           return `<div class="fx">
             <span class="time">${esc(f.time)}</span>
             <div class="fx-main">
-              <div class="fx-teams"><span class="${jh?"jp":""}">${esc(f.home)}</span><span class="vs">vs</span><span class="${ja?"jp":""}">${esc(f.away)}</span></div>
+              <div class="fx-teams"><span class="${jh?"jp":""}">${esc(f.home)}</span><span class="vs">${f.score?esc(f.score):"vs"}</span><span class="${ja?"jp":""}">${esc(f.away)}</span></div>
               <div class="fx-sub"><span class="fx-comp">${esc(f.compName)} ${esc(f.round)}</span><span class="fx-names">${f.names.map(esc).join("・")}</span></div>
             </div></div>`;}).join("")}</div>
-      </section>`).join("");
+      </section>`;
+    // 終わった日は、これからの試合がある月では折りたたんでおく（カレンダーの日付を押すと開く）
+    const allDays = Object.keys(byDate).sort();
+    const pastDays = allDays.filter(d => d < todayISO), nextDays = allDays.filter(d => d >= todayISO);
+    const body = (pastDays.length && nextDays.length)
+      ? `<details class="past-days"><summary>終わった試合（${pastDays.length}日・${pastDays.reduce((s,d)=>s+byDate[d].length,0)}試合）</summary>${pastDays.map(daySec).join("")}</details>` + nextDays.map(daySec).join("")
+      : allDays.map(daySec).join("");
     return nav + cal + (list.length ? body : `<p class="empty">この月に条件に合う試合はありません。</p>`) +
       `<p class="note fx-foot">時刻は日本時間です。深夜のキックオフは前日の24時以降として表記しています（例：27:45 は翌朝3:45）。日程は変更されることがあります。</p>`;
   }
@@ -2267,6 +2283,7 @@ footer a{color:var(--muted)}
     if(mb && mb.dataset.m){ state.month = mb.dataset.m; render(); return; }
     const go = e.target.closest("[data-go]");
     if(go){ const el = document.getElementById("d-"+go.dataset.go); if(el){
+      const pd = el.closest("details"); if(pd) pd.open = true;
       const off = document.querySelector(".controls").offsetHeight + 8;
       window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - off, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}); } return; }
     const th = e.target.closest("th[data-k]"); if(!th) return;
