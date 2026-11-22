@@ -313,3 +313,4 @@
 
 - kicker・L'Équipe・The Athletic は有料記事が多く、採点が読めないことがある。読めない場合は他の地元紙を優先する。
 - イングランドの地方紙の多く（Reach系・Newsquest系）は取得ツールでブロックされ読めない（2026-10-18確認：Daily Echo、The Bolton News、Hampshire Live、Manchester Evening News、Lancashire Telegraph、Bristol Post、Birmingham Mail、Hull Live）。回り道して読もうとせず、専門メディア（Saints Marching など）や全国メディア（BBC、スカイ・スポーツ、PA配信）を優先する。
+- [Sport News Africa](https://sportnewsafrica.com/)（英語・仏語。プレミア、ブンデス、リーグ・アンなどの試合記事内に選手採点。10点満点・0.5刻み、寸評あり）
