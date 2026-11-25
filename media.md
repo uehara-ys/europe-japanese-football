@@ -308,6 +308,7 @@
 - [Sport News Africa](https://sportnewsafrica.com/)（フランス語の汎アフリカ媒体。リーグ・アンの試合記事末尾に編集部の選手採点。10点満点、寸評なし）
 - [EPL Index](https://eplindex.com/)（プレミアの試合ごとの選手採点。Yahoo Sportsに転載。10点満点。寸評なしの選手あり）
 - [Valencia Plaza（Plaza Deportiva）](https://plazadeportiva.valenciaplaza.com/)（スペイン。バレンシアの試合ごとの「Las notas」。10点満点（明記なし）、0.5刻み、寸評あり）
+- [SPORT1](https://www.sport1.de/)（ドイツ。バイエルンなどの「Einzelkritik」。ドイツ式1〜6、寸評あり）
 
 ## メモ（読めなかった媒体など）
 
