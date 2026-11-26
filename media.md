@@ -281,6 +281,7 @@
 - [EAGLE](https://eagle1861.substack.com/)（クリスタル・パレス専門。選手採点。10点満点）
 - [B92](https://www.b92.net/sport/fudbal)（セルビア。レッドスターの「ocene」。点数なしの寸評）
 - [Gol24](https://gol24.pl/)（ポーランド。ヤギェウォニアの「oceny piłkarzy」。10点満点、寸評なし）
+- [Denník Šport](https://www.denniksport.sk/)（スロバキア。スロヴァン・ブラチスラヴァの「známkovanie」。10点満点）
 - [Mondo](https://mondo.rs/)・[Nova.rs](https://nova.rs/)・[Kurir](https://www.kurir.rs/)・[Sportinjo（Informer）](https://sportinjo.informer.rs/)・[Max-Sport](https://www.max-sport.rs/)・[B92](https://www.b92.net/sport)（セルビア。レッドスターの「ocene」。10点満点、寸評あり）
 - [absolutfussball.com](https://www.absolutfussball.com/)（ドイツ。フランクフルトの「Eintracht-Klassenbuch」。点数ではなく言葉の段階評価と寸評）
 - [Sheffield Star](https://www.thestar.co.uk/sport/football/sheffield-united)（シェフィールド・ユナイテッドの選手採点。10点満点。複数ページに分割）
